@@ -3,8 +3,9 @@ import MyMessages from "./MyMessages";
 import TheirMessages from "./TheirMessage";
 const ChatFlow = ({ messages, activeChat, chats, userName }) => {
     const chat = chats && chats[activeChat]
-    console.log(chat, userName, messages)
-   
+    console.log("chat")
+    console.log(chat)
+
     const generatedMessages = () => {
         const messageKeys = Object.keys(messages)
         console.log(messageKeys)
@@ -21,20 +22,20 @@ const ChatFlow = ({ messages, activeChat, chats, userName }) => {
             console.log(messages)
             const MyMessage = userName === message.sender.username
             return (
-                <div style={{ width: "100vw" }} key={`mg${index}`}>
+                <div key={`msg_${index}`} style={{ width: "100vw" }} key={`mg${index}`}>
                     <div>
                         {
                             MyMessage ?
-                                <MyMessages 
-                                message= {message}
+                                <MyMessages
+                                    message={message}
                                 />
-                                : <TheirMessages 
-                                message= {message}
-                                lastMessage={messages?.[lastMessageId]}/>
+                                : <TheirMessages
+                                    message={message}
+                                    lastMessage={messages?.[lastMessageId]} />
                         }
                     </div>
                     <div>
-
+                        {/* {renderReadReceipts(message, MyMessage)} */}
                     </div>
                 </div>
             )
@@ -52,13 +53,14 @@ const ChatFlow = ({ messages, activeChat, chats, userName }) => {
                     {chat?.people.map((person) => person.person.username)}
                 </div>
                 {generatedMessages()}
+                <div style={{height:"50px"}}></div>
                 <div>
                     <AllMessages
                         messages={messages}
                         activeChat={activeChat}
                         chats={chats}
                         userName={userName}
-                        idChat={activeChat}
+                        chatId={activeChat}
                     />
                 </div>
             </div>
