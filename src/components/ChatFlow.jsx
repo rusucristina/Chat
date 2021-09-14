@@ -4,7 +4,7 @@ import TheirMessages from "./TheirMessage";
 const ChatFlow = ({ messages, activeChat, chats, userName }) => {
     const chat = chats && chats[activeChat]
     console.log(chat, userName, messages)
-    console.log(messages)
+   
     const generatedMessages = () => {
         const messageKeys = Object.keys(messages)
         console.log(messageKeys)
@@ -18,6 +18,7 @@ const ChatFlow = ({ messages, activeChat, chats, userName }) => {
                     return messageKeys[index - 1]
                 }
             }
+            console.log(messages)
             const MyMessage = userName === message.sender.username
             return (
                 <div style={{ width: "100vw" }} key={`mg${index}`}>
