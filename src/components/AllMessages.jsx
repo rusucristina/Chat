@@ -10,16 +10,18 @@ const AllMessages = (props) => {
     // console.log(creds)
     const handleSubmit = (e) => {
         e.preventDefault()
-        const messageText = messageContent.trim()
-        if (messageText.length > 0) {
-            sendMessage(creds, chatId, { messageText })
+        // const messageText = messageContent.trim()
+        if (messageContent.length > 0) {
+            sendMessage(creds, chatId, {messageContent})
         }
-        setMessageContent("")
+        setMessageContent(messageContent)
     }
     const handleMessageContent = (e) => {
         setMessageContent(e.target.value)
         isTyping(creds, chatId)
     }
+    // console.log("messageContent")
+    // console.log(messageContent)
     const uploadImage = (e) => {
         sendMessage(creds, chatId, { files: e.target.files, text: "" })
     }

@@ -1,18 +1,22 @@
 const TheirMessages = ({ lastMessage, message }) => {
     const firstMessage = !lastMessage || lastMessage.sender.username !== message.sender.username
-
+console.log(message)
     return (
-        <div>
+        <div className="msg-row">
             {/* if is first message from the user */}
             {firstMessage && (
-                <div style={{ backgroundColor: `url(${message?.sender?.avatar})` }}>
+                <div classname="avatar"
+                style={{ backgroundColor: `url(${message?.sender?.avatar})` }}>
                 </div>
             )}
             {/*if we have an attachments or text*/
                 message?.attachments?.length > 0
-                    ? (<img src={message.attachments[0].file} alt="attachment of the message" />)
+                    ? (<img 
+                        className="img-message"
+                        src={message.attachments[0].file} 
+                        alt="attachment of the message" />)
                     : (
-                        <div>
+                        <div className="msg">
                             {message.text}
                         </div>
                     )

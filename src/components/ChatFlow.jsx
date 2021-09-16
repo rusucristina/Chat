@@ -7,7 +7,6 @@ const ChatFlow = ({ messages, activeChat, chats, userName, creds }) => {
     // console.log(chat)
     // console.log("creds")
     // console.log(creds)
-
     //If the message is read
     const readMessages = (message, myMessage) => {
         chat?.people?.map((person, index) =>
@@ -34,12 +33,12 @@ const ChatFlow = ({ messages, activeChat, chats, userName, creds }) => {
                     return messageKeys[index - 1]
                 }
             }
+          
             const myMessage = userName === message.sender.username
             return (
                 <div key={`msg_${index}`} style={{ width: "100vw" }} key={`mg${index}`}>
                     <div>
-                        {
-                            myMessage ?
+                        {myMessage ?
                                 <MyMessages
                                     message={message}
                                 />
@@ -75,7 +74,6 @@ const ChatFlow = ({ messages, activeChat, chats, userName, creds }) => {
                 <div className="all-message-container">
                     <AllMessages
                         messages={messages}
-                        activeChat={activeChat}
                         chats={chats}
                         userName={userName}
                         chatId={activeChat}

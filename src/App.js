@@ -1,7 +1,9 @@
 import {ChatEngine} from "react-chat-engine";
-import ChatFlow from "./components/ChatFlow";
+import ChatFlow from "./components/ChatFlow"; 
+import Login from "./components/Login"
 import './App.css';
 function App() {
+  if(!localStorage.getItem("username")) return <Login/>
   return (
         <ChatEngine
          height="100%"
