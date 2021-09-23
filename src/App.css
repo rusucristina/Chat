@@ -1,5 +1,33 @@
 /* Google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,600&display=swap');
+
+/* Left part */
+.ce-chat-card{
+  background-color: rgb(97, 126, 211) !important;
+  font-family: 'Dancing Script', semibold !important;
+}
+.ce-chat-form-container{
+  font-family: 'Dancing Script', cursive !important;
+}
+#new-chat-plus-button{
+  background-color: rgb(97, 126, 211) !important;
+}
+
+/* Right part */
+.ce-chat-settings-container{
+  border-radius: 30px;
+}
+.ce-text-input{
+  background-color: rgb(97, 126, 211);
+  color: black;
+  width: 20vw!important;
+  font-family: "Dancing Script" ;
+}
+.ce-chat-title-form{
+display: flex !important;
+width: 100vw;
+}
 
 /* ChatFlow styles */
 .read-messages{
@@ -8,8 +36,9 @@
 }
 .chat{
   height: 100vh;
-  width: 100%;
-  /* overflow: scroll; */
+  width: 50vw;
+  border:rgb(255, 255, 255) solid 2px;
+  overflow: scroll;
   background-color: rgb(243, 231, 248);
 }
 .chat-container{
@@ -108,7 +137,7 @@
    padding: 11px;
    max-width: 65%;
    /* float: right ; */
-   background-color: #67506b;
+   background-color: royalblue;
    color: black;
    margin-right: 18px ;
 }

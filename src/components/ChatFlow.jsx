@@ -3,10 +3,15 @@ import MyMessages from "./MyMessages";
 import TheirMessages from "./TheirMessage";
 const ChatFlow = ({ messages, activeChat, chats, userName, creds }) => {
     const chat = chats && chats[activeChat]
+    // console.log("userName")
+    // console.log(userName)
+    // console.log("messages")
+    // console.log(messages)
     // console.log("chat")
     // console.log(chat)
     // console.log("creds")
     // console.log(creds)
+
     //If the message is read
     const readMessages = (message, myMessage) => {
         chat?.people?.map((person, index) =>
@@ -23,8 +28,13 @@ const ChatFlow = ({ messages, activeChat, chats, userName, creds }) => {
     //Handle messages to components
     const generatedMessages = () => {
         const messageKeys = Object.keys(messages)
+        // console.log(messageKeys)
         return messageKeys.map((key, index) => {
-            const message = messages[key]
+            const message = messages[key] 
+            // console.log(" chatflow message")
+            // console.log(message)
+            // console.log("index")
+            // console.log(index)
             const lastMessageId = () => {
                 if (index === 0) {
                     return null
@@ -33,18 +43,18 @@ const ChatFlow = ({ messages, activeChat, chats, userName, creds }) => {
                     return messageKeys[index - 1]
                 }
             }
-          
+           
             const myMessage = userName === message.sender.username
             return (
-                <div key={`msg_${index}`} style={{ width: "100vw" }} key={`mg${index}`}>
+                <div  style={{ width: "100vw" }} key={`mg${index}`}>
                     <div>
                         {myMessage ?
-                                <MyMessages
-                                    message={message}
-                                />
-                                : <TheirMessages
-                                    message={message}
-                                    lastMessage={messages?.[lastMessageId]} />
+                            <MyMessages
+                                message={message}
+                            />
+                            : <TheirMessages
+                                message={message}
+                                lastMessage={messages?.[lastMessageId]} />
                         }
                     </div>
                     {/* If the message is already read */}
@@ -67,21 +77,23 @@ const ChatFlow = ({ messages, activeChat, chats, userName, creds }) => {
                     </div>
                 </div>
                 <div className="chat-subtitle">
-                    {chat?.people.map((person) => person.person.username)}
-                </div>
-                {generatedMessages()}
-                <div style={{ height: "100px" }}></div>
-                <div className="all-message-container">
-                    <AllMessages
-                        messages={messages}
-                        chats={chats}
-                        userName={userName}
-                        chatId={activeChat}
-                        creds={creds}
-                    />
+                    {chat?.people.map((person) => ` ${person.person.username}`)}
                 </div>
             </div>
+            {generatedMessages()}
+
+            <div style={{ height: "100px" }}></div>
+            <div className="all-message-container">
+                <AllMessages
+                    messages={messages}
+                    chats={chats}
+                    userName={userName}
+                    chatId={activeChat}
+                    creds={creds}
+                />
+            </div>
         </div>
+
     )
 }
 export default ChatFlow

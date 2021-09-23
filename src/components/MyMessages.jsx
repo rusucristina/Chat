@@ -1,6 +1,6 @@
 const MyMessages = ({ message }) => {
-    console.log("message")
-    console.log(message.text)
+    // console.log("message")
+    // console.log(message)
     if (message?.attachments?.length > 0) {
         return (
             <img src={message.attachments[0].file} alt="message attachment"
@@ -10,7 +10,7 @@ const MyMessages = ({ message }) => {
     else{
        return (
         <div className="msg" >
-            {message.text}
+            {message?.text}
         </div>
     ) 
     }

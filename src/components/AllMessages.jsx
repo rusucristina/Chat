@@ -10,15 +10,15 @@ const AllMessages = (props) => {
     // console.log(creds)
     const handleSubmit = (e) => {
         e.preventDefault()
-        // const messageText = messageContent.trim()
+        const text = messageContent.trim()
         if (messageContent.length > 0) {
-            sendMessage(creds, chatId, {messageContent})
+            sendMessage(creds, chatId, {text})
         }
-        setMessageContent(messageContent)
+        setMessageContent("")
     }
     const handleMessageContent = (e) => {
         setMessageContent(e.target.value)
-        isTyping(creds, chatId)
+        isTyping(props, chatId)
     }
     // console.log("messageContent")
     // console.log(messageContent)
