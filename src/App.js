@@ -6,11 +6,12 @@ function App() {
   if(!localStorage.getItem("username")) return <Login/>
   return (
         <ChatEngine
-         height="100%"
+         height="100vh"
          projectID="6c15c53c-665f-4f10-9e23-2ca01e962e80"
-         userName="Rusu Cristina"
-         userSecret="1234"
+         userName={localStorage.getItem("username")}
+         userSecret={localStorage.getItem("password")}
          renderChatFeed={(chatAppProps)=> <ChatFlow {...chatAppProps}/>}
+         onNewMessage={()=>new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}
         />
   ) 
 }

@@ -4,10 +4,7 @@ import { SendOutlined, PictureOutlined } from "@ant-design/icons";
 const AllMessages = (props) => {
     const { chatId, creds } = props
     const [messageContent, setMessageContent] = useState("")
-    // console.log(chatId)
-    // console.log(messageContent)
-    // console.log("creds2")
-    // console.log(creds)
+
     const handleSubmit = (e) => {
         e.preventDefault()
         const text = messageContent.trim()
@@ -16,12 +13,12 @@ const AllMessages = (props) => {
         }
         setMessageContent("")
     }
+
     const handleMessageContent = (e) => {
         setMessageContent(e.target.value)
         isTyping(props, chatId)
     }
-    // console.log("messageContent")
-    // console.log(messageContent)
+   
     const uploadImage = (e) => {
         sendMessage(creds, chatId, { files: e.target.files, text: "" })
     }
@@ -34,22 +31,23 @@ const AllMessages = (props) => {
                 className="messages-input"
                 type="text"
                 placeholder="Send the message"
-            />
-            <input
-                className="input-file"
-                type="file"
-                multiple={false}
-                onChange={uploadImage}
-            />
-            <label htmlFor="upload-button">
+            /> 
+             <label htmlFor="upload-button">
                 <span className="image-button">
                     <PictureOutlined className="picture-button"/>
                 </span>
             </label>
-
+            <input
+                className="input-file"
+                id="upload-button"
+                type="file"
+                multiple={false}
+                onChange={uploadImage.bind(this)}
+                style={{display:"none"}}
+            />
             <button
                 type="submit" className="send-message">
-                <SendOutlined />
+                <SendOutlined className="send-icon"/>
             </button>
         </form>
     )
